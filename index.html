@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برای سحر ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:flex;align-items:center;
+ justify-content:center;padding:20px;
+ font-family:Tahoma,sans-serif;text-align:center;color:#8b3158;
+ background:linear-gradient(135deg,#ffe1ed,#fff5f8,#ffd0e3);
+ overflow:hidden
+}
+.card{
+ width:100%;max-width:420px;padding:30px 22px;
+ background:#ffffffdf;border-radius:28px;
+ box-shadow:0 12px 40px #d66b9633;
+ border:1px solid white;position:relative
+}
+.bear{font-size:75px;animation:bounce 2s infinite}
+h1{color:#d83d79;font-size:30px}
+p{line-height:2;font-size:16px}
+.question{font-size:22px;font-weight:bold;margin:25px 0}
+button{
+ border:0;border-radius:30px;padding:14px 24px;
+ font-size:17px;font-family:Tahoma,sans-serif;
+ cursor:pointer;margin:7px
+}
+#yes{background:#e94f8b;color:white;box-shadow:0 5px 15px #e94f8b55}
+#no{background:white;color:#b83e70;border:1px solid #f2b3cd}
+#message{display:none;background:#fff0f6;padding:16px;border-radius:18px;margin-top:20px}
+.heart{position:fixed;bottom:-30px;animation:up 8s linear infinite;pointer-events:none}
+@keyframes up{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+@keyframes bounce{50%{transform:translateY(-8px)}}
+</style>
+</head>
+<body>
+<div class="card">
+ <div class="bear">🧸💗</div>
+ <p>یه حرف از ته دل برای تو، سحر جونم…</p>
+ <h1>سحر عزیزم 🥺</h1>
+ <p>
+ می‌دونم ناراحتت کردم و دلت رو شکستم.
+ نمی‌خوام فقط با حرف همه‌چی رو درست کنم؛
+ می‌خوام اشتباهم رو بپذیرم و با رفتارم جبران کنم. ❤️
+ </p>
+ <div class="question">با حمید آشتی می‌کنی؟ 🌷</div>
+ <button id="yes" onclick="yes()">آره ❤️</button>
+ <button id="no" onclick="no()">نه 🙈</button>
+ <div id="message">
+  <h2>سحر جونم 💖</h2>
+  ممنون که بهم فرصت دادی.
+  می‌خوام با رفتارم نشون بدم چقدر برام مهمی.
+  <br><br>
+  دوستت دارم ❤️<br>
+  ــ حمید
+ </div>
+ <p id="hint">هر جوابی بدی، به احساست احترام می‌ذارم 💕</p>
+</div>
+<script>
+function yes(){
+ document.getElementById('message').style.display='block';
+ document.getElementById('hint').innerText='یه بغل مجازی از طرف حمید 🫂❤️';
+}
+let count=0;
+function no(){
+ count++;
+ let b=document.getElementById('no');
+ let h=document.getElementById('hint');
+ if(count<4){
+  b.style.transform='translate('+(Math.random()*100-50)+'px,'+(Math.random()*50-25)+'px)';
+  h.innerText='اوه! دکمه فرار کرد 🙈💗';
+ }else{
+  b.style.transform='none';
+  b.innerText='نه، هنوز آماده نیستم';
+  h.innerText='اشکالی نداره سحر جان؛ هر وقت آماده بودی تصمیم بگیر. ❤️';
+  b.onclick=()=>{h.innerText='به زمان و تصمیمت احترام می‌ذارم. ــ حمید ❤️'};
+ }
+}
+for(let i=0;i<18;i++){
+ let x=document.createElement('div');
+ x.className='heart';x.innerText=['💗','💕','♡'][i%3];
+ x.style.left=Math.random()*100+'%';
+ x.style.animationDelay=Math.random()*8+'s';
+ x.style.fontSize=(16+Math.random()*18)+'px';
+ document.body.appendChild(x);
+}
+</script>
+</body>
+</html>
